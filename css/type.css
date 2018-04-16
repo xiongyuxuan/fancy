@@ -1,5 +1,12 @@
 ﻿@charset "utf-8";
 /* CSS Document */
+img.new-ribbon {
+    position: absolute;
+	top: -4px;
+    right: -2px;
+	width=67.5px;
+	height=76.5px;
+}
 
 body,html{
 	margin:0px;
@@ -298,6 +305,7 @@ a{
 	font-weight:100;
 	}
 .jdgz1{
+	position: relative;
 	border-top:2px #5c307d solid;
 	height:290px;
 	width:291px;
@@ -319,6 +327,7 @@ a{
 	color:#4f608c;
 	}
 .jdgz2{
+	position: relative;
 	border-top:2px #e0823d solid;
 	height:290px;
 	width:291px;

@@ -2,27 +2,54 @@
 <html>
 <head>
 <title>动能定理</title>
+<link rel="shortcut icon" href="images/seed.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="js/kineticEnergyLaw.js"></script>
 <style>
 	div {
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
+		<!--border: 1px solid black;-->
+	}
+	canvas{
 		border: 1px solid black;
+		float:left;
 	}
 </style>
 </head>
 
 <body onload="startGame()">
 
-<div>
-
-	沙桶质量<input onfocusout="setWeight()" type="number" id="bucket" value="1" step="any" min="0.0000001" required> kg<br>
-	滑块质量<input onfocusout="setWeight()" type="number" id="slider" value="1" step="any" min="0.0000001" required> kg<br>
-	摩擦系数<input onfocusout="setWeight()" type="number" id="frictionFactor" value="0.4" step="any" min="0" max="1" required><br>
-	<input onclick="setWeight()" type="submit">
-
+<div style="margin-left: 965px">
+	相关公式：<br>
+	E=(1/2)*M*V<sup>2</sup><br>
+	M<sub>2</sub>*g*h=(1/2)*M<sub>1</sub>*V<sub>1</sub><sup>2</sup>+(1/2)*M<sub>2</sub>*V<sub>2</sub><sup><sub>2</sub></sup>+u*M<sub>1</sub>*g*S<sub>1</sub><br>
+	<br>
+	<hr>
+	输入：<br>
+	沙桶质量M<sub>1</sub>: <input type="number" id="bucket" value="1" step="any" min="0.0000001" required> kg<br>
+	滑块质量M<sub>2</sub>: <input type="number" id="slider" value="1" step="any" min="0.0000001" required> kg<br>
+	摩擦系数&nbsp&nbsp&nbsp&nbsp&nbsp: <input type="number" id="frictionFactor" value="0.4" step="any" min="0" max="1" required><br>
+	<input onclick="setWeight()" type="submit" value="确定"><br><br>
+	<hr>
+	<div>
+	输出：<br>
+	<br>
+	时间：<span id="time">1</span> s<br />
+	沙桶加速度&nbsp：<span id="bucketA">2.94</span> m/s<sup>2</sup><br />
+	沙桶瞬时速度：<span id="bucketV">2.94</span> m/s<br />
+	沙桶动能：<span id="bucketE">4.3218</span> J<br />
+	沙桶重力做功：<span id="bucketWg">14.406</span> J<br />
+	滑块加速度&nbsp：<span id="sliderA">2.94</span> m/s<sup>2</sup><br />
+	滑块瞬时速度：<span id="sliderV">2.94</span> m/s<br />
+	滑块动能：<span id="sliderE">4.3218</span> J<br />
+	滑块位移：<span id="sliderS">1.47</span> m<br />
+	摩擦力做功: <span id="Q">5.7624</span> J<br />
+	</div>
 	
 </div>
+
+
 </body>
 </html>
