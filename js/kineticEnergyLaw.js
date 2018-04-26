@@ -51,22 +51,12 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
 		this.frictionFactor=0.4;
-        //this.interval = setInterval(updateGameArea, 20);
-		/*window.addEventListener('mousedown', function (e) {
-            myGameArea.x = e.pageX;
-            myGameArea.y = e.pageY;
-        })
-        window.addEventListener('mouseup', function (e) {
-            myGameArea.x = false;
-            myGameArea.y = false;
-        })
-		*/
+
 		if (window.addEventListener) {
 			window.addEventListener('click',clickHandler);
 		} else if (window.attachEvent) {
 			window.attachEvent('click', clickHandler);
 		}
-		
 		
 		firstUpdate();
         },
@@ -138,7 +128,6 @@ function component(width, height, color, x, y, type) {
 			this.hitBottom=true;
 			this.y=myGameArea.canvas.height-this.height+6;
 			this.gravitySpeed=-this.bounce*this.gravitySpeed;
-			//alert("the time used is: "+myGameArea.frameNo*20+" ms");
 		}
     }
 	this.clicked = function() {
@@ -157,20 +146,6 @@ function component(width, height, color, x, y, type) {
 function updateGameArea() {
 	myGameArea.frameNo++;
     myGameArea.clear();
-	
-	//test
-	/*if(myGameArea.frameNo%500==0){
-		alert("gravity: "+myBucket.gravity+
-		"\n myBucket.weight "+myBucket.weight+
-	"\n myGameArea.frictionFactor "+myGameArea.frictionFactor+
-	"\n mySlider.weight "+mySlider.weight+
-	"\n "+(myBucket.weight-myGameArea.frictionFactor*mySlider.weight)/(myBucket.weight+mySlider.weight)*0.01+
-	"\n "+(myBucket.weight-myGameArea.frictionFactor*mySlider.weight)+
-	"\n "+(myBucket.weight+mySlider.weight)+
-	"\n "+(mySlider.weight+1)+
-	"\n ");	
-	}
-	*/
 
     myGamePiece.update();
 	
@@ -213,8 +188,7 @@ function updateGameArea() {
 			mySlider.x=605;
 			alert("小心点同学，别把滑轮给撞坏了 :-)");
 			setWeight();
-		}
-		
+		}	
 	}
 	mySlider.update();
 	
@@ -292,13 +266,13 @@ function setWeight(){
 	 myBucket.gravity=(myBucket.weight-myGameArea.frictionFactor*mySlider.weight)/(myBucket.weight+mySlider.weight)*0.05;
 	 output.a=(myBucket.weight-myGameArea.frictionFactor*mySlider.weight)/(myBucket.weight+mySlider.weight)*output.g;
 	 //the animation will run very fast if myBucket.gravity==output.a
-	// alert(myBucket.weight+" "+mySlider.weight+" "+myGameArea.fricitonFactor)
 }
 
 function clickHandler(e){
 	myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
 			if(myStartBt.clicked()){
+				myPaperBt.isStart=false; //the page is not showing paper now
 				myStartBt.isStart=!myStartBt.isStart;
 				if(myStartBt.isStart){ //the status of this button is start
 					myStartBt.image.src="images/kineticEnergyLaw/pauseButton.jpg";
@@ -310,6 +284,8 @@ function clickHandler(e){
 				}
 			}
 			else if(myRestartBt.clicked()){
+				myPaperBt.isStart=false; //the page is not showing paper now
+				output.base=10;
 				setWeight();
 			}
 			else if(myPaperBt.clicked()){
@@ -317,22 +293,25 @@ function clickHandler(e){
 				//alert("you clicked paper button");
 			}
 			else if(left.clicked()){
-				if(myPaperBt.isSet)
+				if(myPaperBt.isSet){
 					output.base-=600;
-				showPaper();
+				if(myPaperBt.isStart)	
+					showPaper();
+				}
 			}
 			else if(right.clicked()){
 				if(myPaperBt.isSet)
 					output.base+=600;
-				showPaper();
+				if(myPaperBt.isStart)
+					showPaper();
 			}
 			
 }
 
 function showPaper(){
 	//pause the game;
-	//output.base=10;
-	myPaperBt.isSet=true;  //myPaperBt has been clicked
+	myPaperBt.isSet=true;  //myPaperBt has been clicked before
+	myPaperBt.isStart=true; //the screen is showing the page now;
 	var x=output.base;
 	var s=0;
 	var max=output.s*100;
@@ -357,11 +336,8 @@ function showPaper(){
 	ctx.strokeText("左移",210,420);
 	ctx.strokeText("右移",688,420);
 	
-	
 	myPaper=new component(956,70,"rgb(204, 102, 0)",0,238);//draw myPaper
 	myPaper.update();		
-	
-
 	
 	ctx.font = "15px Arial";
 	ctx.fillStyle="rgb(0,0,0)";
@@ -379,20 +355,6 @@ function showPaper(){
 		else
 			ctx.fillText(s+"cm",x-5,267);
 		times++;
-		//x+=10;
 	}
-	
-	//var number= Math.round(num*Math.pow(10,n));
-//  return number/Math.pow(10,n);
-	
-	
 	ctx.stroke();
-	
 }
-
-
-
-
-
-
-
