@@ -7,7 +7,7 @@
 ?>
 <head>
 <meta charset="utf-8" />
-<title>Seeed</title>
+<title>Fancy</title>
 <link rel="shortcut icon" href="images/seed.ico" />
 <link href="css/type.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,15 +19,16 @@
 <!------------------------------网页头部-------------------------->
 	<div style="width:100%; height:135px; margin:0px auto;">
 	<div class="banner W">
-    	<img src="images/logo.png" height="100" width="200">
+    	<img src="images/logo.jpg" height="100" width="200">
         <div class="ban_right">
         	<span>
 			<?php
 			echo "hello,".$_POST['username'];
-			//<a href="login.html">登陆</a>
-			
-			//<a href=" ">注册</a>
 			?>
+			<!--<a href="login.html">登陆</a>
+			
+			<a href=" ">注册</a>   -->
+			
 			</span>
             <div style="clear:right;"></div>
             <div class="ban_right2">
@@ -293,7 +294,7 @@
         </div>
 <!------------------------网页底部------------------------------->
         <div class="bottom W">
-        	<span style="display:block; float:left; margin-top:25px;">联系电话：&nbsp;&nbsp;&nbsp;&nbsp;管理员信箱：&nbsp;&nbsp;&nbsp;&nbsp;地址：重庆市西南大学</span>
+        	<span style="display:block; float:left; margin-top:25px;">联系电话：15687848022&nbsp;&nbsp;&nbsp;&nbsp;管理员信箱：2752682181@qq.com&nbsp;&nbsp;&nbsp;&nbsp;地址：重庆市西南大学</span>
         </div>
           </div>
 		</div>
