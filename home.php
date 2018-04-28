@@ -100,87 +100,7 @@
 		document.getElementById(a).style.color="#000";
     }
 </script>
-<!--      <div class="img">
-	  	<img id="img" src="images/1.jpg" height="400" width="1150">
-		<div class="sm">
-        	<h3 id="txt">思德网：一个学生的自学自测平台</h3>
-            <div id="div1">
-        	<script>
-				
-				function sj(){
-					
-					var time=new Date();
-					var y=String(time.getFullYear());
-					var m=String(time.getMonth()+1);
-					var d=String(time.getDate());
-					var div1=document.getElementById('div1');
-					
-					div1.innerHTML=y.fontsize(5)+"."+m.fontsize(5)+"."+d.fontsize(5)+".";
-										
-				}
-				sj();
-				function djChange(liId){
-					window.clearTimeout(t);
-					image.src='images/'+arr[liId];
-				}
-			</script>
-            </div>
-        </div>
-</div>
 
-<ul class="ul1">
-  <li style="font-size:16px; color:#fff; font-weight:bolder; margin-left:10px;"><a href="#"> < </a></li>
-	<li><span style="font-size:24px; font-weight:bolder; color:#d7d0dd;">4</span><span style="font-size:12px; color:#9884ab;">月</span></li>
-	<li style="margin-left:10px;" onClick="djChange(0)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">1</a></li>
-	<li>2</li>
-	<li>3</li>
-	<li onClick="djChange(1)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">4</a></li>
-	<li onClick="djChange(2)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">5</a></li>
-	<li>6</li>
-	<li>7</li>
-	<li onClick="djChange(3)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">8</a></li>
-	<li onClick="djChange(4)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">9</a></li>
-	<li>10</li>
-	<li>11</li>
-	<li onClick="djChange(5)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">12</a></li>
-	<li>13</li>
-	<li onClick="djChange(6)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">14</a></li>
-	<li>15</li>
-	<li>16</li>
-	<li>17</li>
-	<li>18</li>
-	<li>19</li>
-	<li>20</li>
-	<li>21</li>
-	<li onClick="djChange(7)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">22</a></li>
-	<li>23</li>
-	<li>24</li>
-	<li onClick="djChange(8)"><a class="a1" onMouseOver="mouseUp(this)" onMouseOut="mouseOver(this)">25</a></li>
-	<li>26</li>
-	<li>27</li>
-	<li>28</li>
-	<li>29</li>
-	<li>30</li>
-	<li>31</li>
-</ul>
-<script>
-		  var arr=['1.jpg','2.jpg','3.jpg','4.jpg','2.jpg','5.jpg','2.jpg','1.jpg','6.jpg'];
-		  var arr1=['思德网：一个学生的自学自测平台','验证牛顿第二定律：物体加速度的大小跟作用力成正比','验证动量守恒定律：m1 * OP = m1 * OM + m2 * ON','验证机械能守恒定律: │△Ep│=mgh 和 △EK=1/2mv2','探究平面镜成像的特点','阻力对物体运动的影响','动能的大小与什么因素有关','用滑动变阻器改变灯泡的亮度','电功跟电压、电流和通电时间的关系'];
-		  var t=null;
-		  var image=document.getElementById('img');
-		  var txt=document.getElementById('txt');
-		  function djChange(num){
-			  window.clearTimeout(t);
-			  image.src='images/'+arr[num];
-			  txt.innerHTML=arr1[num];
-		  }
-		  function mouseUp(li){
-			  li.className='a2';
-		  }
-		  function mouseOver(li){
-			  li.className='a1';  
-		  }
-</script>-->
 <div id="carousel" class="carousel" @mouseover="isCarousel=true" @mouseout="isCarousel=false">
 			<div class="carousel-inner">
 				<transition name="carousel-animates"
@@ -250,9 +170,11 @@
 				<span>打点计时器</span>
 			</div>
         	<div class="jdgz2">
-				<a href="blank.html"><img src="images/cover.jpg" height="120" width="290px;"></a>
-                <p><a href="blank.html">如何验证牛顿第二定律</a></p>
-				<span>牛顿第二定理吧啦吧啦</span></div>
+				<a href="electricField.html">
+				<img class="new-ribbon" src="images/new.png" alt="new-ribbon">
+				<img src="images/electricField/cover.jpg" height="120" width="290px;"></a>
+                <p><a href="electricField.html">体验电场强度</a></p>
+				<span>E=k*Q/r<sup>2</sup></span></div>
 			<div class="jdgz1">
 				<a href="blank.html"><img src="images/cover.jpg" height="120" width="290px;"></a>
 				<p><a href="blank.html">如何验证杠杆原理？</a></p>

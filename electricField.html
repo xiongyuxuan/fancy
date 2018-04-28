@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>电场</title>
+<link rel="shortcut icon" href="images/seed.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="js/electricField.js"></script>
+<style>
+	div {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		<!--border: 1px solid black;-->
+	}
+	canvas{
+		border: 1px solid black;
+		float:left;
+	}
+</style>
+</head>
+
+<body onload="startGame()">
+
+<div style="margin-left: 965px">
+	相关公式：<br>
+	E=k*Q/r<sup>2</sup><br>
+	
+	<br>
+	<hr>
+	输入：<br>
+	电荷量Q: <input type="number" id="q" value="-1" step="any" min="0.0000001" required> 毫库<br>
+	<input onclick="setQ()" type="submit" value="确定"><br><br>
+	<hr>
+	<div>
+	输出：<br>
+	<br>
+	鼠标位置：<span id="time">0</span> m<br />
+	传感器测得电场强度&nbsp：
+	<br />E=<span id="sensor1"></span>&nbsp&nbspV/m
+	<br>&nbsp&nbsp=<span id="sensor2"></span>&nbsp&nbspV/m
+	<br />
+	
+	</div>
+	
+	<hr>
+	<div>
+	提示：<br>
+	<br>
+	把电荷拖到黄色框框可以删除电荷
+</div>
+
+
+</body>
+</html>
