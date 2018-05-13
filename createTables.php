@@ -6,8 +6,9 @@ $tables='CREATE TABLE if not exists students (
 id INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 firstname VARCHAR(30) NOT NULL,
 lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-regdate DATETIME
+email VARCHAR(50) UNIQUE,
+regdate DATETIME,
+password VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
 
 
@@ -16,8 +17,9 @@ $tables.='CREATE TABLE if not exists  teachers (
 id INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 firstname VARCHAR(30) NOT NULL,
 lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-regdate DATETIME
+email VARCHAR(50) UNIQUE,
+regdate DATETIME,
+password VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
 
 

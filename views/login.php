@@ -27,14 +27,14 @@
 
         <div class="page-container">
             <h1>Login</h1>
-            <form action="home.php" method="post">
+            <form action="../controllers/verification.php" method="post">
 				<div>
-					<input type="text" name="username" class="username" placeholder="Username" autocomplete="off" value="Test"/>
+					<input type="text" name="email" class="email" placeholder="Email" value="jacky@fancy.com" autocomplete="off" />
 				</div>
                 <div>
-					<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" onpaste="return false" value="123" />
+					<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" value="Jacky" onpaste="return false" />
                 </div>
-                <button id="submit" type="submit">Sign in</button>
+                <button id="submit" type="submit">登陆</button>
             </form>
             <div class="connect">
                 <p>Fancy education: find more interesting learning approaches.</p>

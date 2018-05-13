@@ -1,9 +1,11 @@
 ﻿<html lang="zh-cn">
 <?php 
-			if(empty($_POST['username'])){
-				header("Location:login.html"); 
+session_start();		
+
+		if(empty($_SESSION["username"])){
+				header("Location:login.php"); 
 				exit;
-			}
+		}
 ?>
 <head>
 <meta charset="utf-8" />
@@ -23,7 +25,7 @@
         <div class="ban_right">
         	<span>
 			<?php
-			echo "hello,".$_POST['username'];
+			echo "hello,".$_SESSION['username'];
 			?>
 			<!--<a href="login.html">登陆</a>
 			
@@ -163,17 +165,17 @@
             	<h2>示范实验</h2>
             </div>
         	<div class="jdgz1">
-            	<a href="kineticEnergyLaw.html">
+            	<a href="lab.php?labName=kineticEnergyLaw">
 				<img class="new-ribbon" src="images/new.png" alt="new-ribbon">
 				<img src="images/kineticEnergyLaw/cover.jpg" height="120" width="290px;"></a>
 				<p><a href="kineticEnergyLaw.html">如何验证动能定理？</a></p>
 				<span>打点计时器</span>
 			</div>
         	<div class="jdgz2">
-				<a href="electricField.html">
+				<a href="lab.php?labName=electricField">
 				<img class="new-ribbon" src="images/new.png" alt="new-ribbon">
 				<img src="images/electricField/cover.jpg" height="120" width="290px;"></a>
-                <p><a href="electricField.html">体验电场强度</a></p>
+                <p><a href="lab.php?labName=electricField">体验电场强度</a></p>
 				<span>E=k*Q/r<sup>2</sup></span></div>
 			<div class="jdgz1">
 				<a href="blank.html"><img src="images/cover.jpg" height="120" width="290px;"></a>
