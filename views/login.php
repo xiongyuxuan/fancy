@@ -1,5 +1,11 @@
 
 <!DOCTYPE html>
+<?php
+$error="";
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if(isset($_GET["error"]))  $error="邮箱或密码错误！";
+}
+?>
 <html lang="en" class="no-js">
 
     <head>
@@ -15,6 +21,7 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/supersized.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/type.css">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -26,14 +33,29 @@
     <body oncontextmenu="return false">
 
         <div class="page-container">
+
+            <table style="border: 1px solid red; text-align:center;width: 40%;">
+                <tr>
+                    <th>Test Accounts</th><th>Student</th><th>Teacher</th>
+                </tr>
+                <tr>
+                    <th>Username</th><td>jacky@fancy.com</td><td>bill@fancy.com</td>
+                </tr>
+                <tr>
+                    <th>Password</th><td>abcDE</td><td>abcDE</td>
+                </tr>
+            </table>
+
+
             <h1>Login</h1>
             <form action="../controllers/verification.php" method="post">
 				<div>
 					<input type="text" name="email" class="email" placeholder="Email" value="jacky@fancy.com" autocomplete="off" />
 				</div>
                 <div>
-					<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" value="Jacky" onpaste="return false" />
+					<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" value="abcDE" onpaste="return false" />
                 </div>
+                <span class="error"><?php echo "<br>".$error; ?></span>
                 <button id="submit" type="submit">登陆</button>
             </form>
             <div class="connect">

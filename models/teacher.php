@@ -1,20 +1,28 @@
 <?php
-require_once('../connect.php');
-class Student
-{
+/**
+ * Created by PhpStorm.
+ * User: xiong
+ * Date: 16/05/2018
+ * Time: 2:39 PM
+ */
 
+require_once('../connect.php');
+
+class Teacher
+{
     /*
-   * pre-condition: input student's email and password
-    * function: validate if the student with certain password exist or not
-     * post-condition: -return true if a record in table: students matchs the input.
-    *              -return false if no record matches.
-  */
-    public static function checkIfExist($email, $password)
+* pre-condition: input teacher's email and password
+ * function: validate if the teacher with certain password exist or not
+  * post-condition: -return true if a record in table: teachers matchs the input.
+ *              -return false if no record matches.
+*/
+   public static function checkIfExist($email, $password)
     {
         global $mysqli;
         $mysqli=connect();
-        $query = 'select * from students
+        $query = 'select * from teachers
 	where email="' . $email . '" and password=PASSWORD("' . $password . '");';
+
 
         /*if ($result = $mysqli->query($query)) {
                 echo '<table style="border: 1px solid red">';
@@ -28,12 +36,10 @@ class Student
                 $result->free();
             }
         */
-
         $result = $mysqli->query($query);
         $mysqli->close();
-
         return $result;
     }
-}
 
+}
 ?>

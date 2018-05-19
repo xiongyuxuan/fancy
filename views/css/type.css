@@ -4,8 +4,8 @@ img.new-ribbon {
     position: absolute;
 	top: -4px;
     right: -2px;
-	width=67.5px;
-	height=76.5px;
+	width: 67.5px;
+	height: 76.5px;
 }
 
 body,html{
@@ -50,6 +50,9 @@ a{
 	float:left;
 	border:1px #b1b1b1 solid;
 	}
+.error{
+	color: blue;
+}
 .search{
 	height:30px;
 	width:40px;

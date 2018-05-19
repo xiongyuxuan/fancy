@@ -1,5 +1,6 @@
 <?php
-require 'connect.php';
+require_once('connect.php');
+$mysqli=connect();
 
 //student table
 $tables='CREATE TABLE if not exists students (
@@ -154,7 +155,7 @@ if ($mysqli->multi_query($tables)) {
 		else
 			break;
     } while ($mysqli->next_result());
-	echo "All tables are created successfully";
+	echo "All tables are created successfully<br>";
 } 
 else {
     echo "Error creating table: " . $mysqli->error;

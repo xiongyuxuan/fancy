@@ -1,0 +1,4 @@
+-views/createCourse.php: the view for creating a course
+-controllers/createCourse.php: the view for creating a course, echo infomation when user is not a student.
+-views/login.php: turn the error information to red color;
+-views/showCourses.php: show that the course the user have;

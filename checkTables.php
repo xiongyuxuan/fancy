@@ -1,6 +1,6 @@
 <?php
-require 'connect.php';
-
+require_once('connect.php');
+$mysqli=connect();
 
 $check='select * 
 from students;';
@@ -57,7 +57,7 @@ if ($mysqli->multi_query($check)) {
 		else
 			break;
     } while ($mysqli->next_result());
-	echo "The end of the page.";
+	echo "The end of the all tables.";
 } 
 else {
     echo "Error checking table: " . $mysqli->error;

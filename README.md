@@ -16,10 +16,6 @@ Bofore programming, please do these first:
 2. modify 'connect.php' according to step 1;
 	(skip this step if you followed suggestion in step 1)
 	
-3. excute 'createTables.php';
-
-4. excute 'insertStudents.php';
-
-5. excute 'checkTables.php'.
+3. excute initial.php
 
 --End of the file.

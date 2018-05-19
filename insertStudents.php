@@ -1,5 +1,6 @@
 <?php
-require 'connect.php';
+require_once('connect.php');
+$mysqli=connect();
 
 /*
 //student table
@@ -14,12 +15,15 @@ regdate DATETIME
 
 $students='insert into 
 students(id,firstname,lastname,email,regdate,password)
-values(1,"Jacky","Chen","jacky@fancy.com",CURDATE(),PASSWORD("Jacky"));';
+values(1,"Jacky","Chen","jacky@fancy.com",CURDATE(),PASSWORD("abcDE"));';
 
 $students.='insert into 
 students(firstname,lastname,email,regdate,password)
-values("Bruce","Li","bruce@fancy.com",CURDATE(),PASSWORD("Bruce"));';
+values("Bruce","Li","bruce@fancy.com",CURDATE(),PASSWORD("abcDE"));';
 
+$students.='insert into 
+students(firstname,lastname,email,regdate,password)
+values("Yuxuan","Xiong","yuxuan@fancy.com",CURDATE(),PASSWORD("abcDE"));';
 
 
 
@@ -40,10 +44,10 @@ if ($mysqli->multi_query($students)) {
 		else
 			break;
     } while ($mysqli->next_result());
-	echo "All students are inserted successfully";
-} 
+	echo "All students are inserted successfully<br>";
+}
 else {
-    echo "Error creating table: " . $mysqli->error;
+    echo "Error inserting Students: " . $mysqli->error;
 }
 
 $mysqli->close();
