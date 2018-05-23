@@ -6,6 +6,7 @@ session_start();
 				header("Location:login.php"); 
 				exit;
 		}
+require_once("../models/lab.php");
 ?>
 <head>
 <meta charset="utf-8" />
@@ -164,19 +165,30 @@ session_start();
         	<div class="jdgz_top">
             	<h2>示范实验</h2>
             </div>
-        	<div class="jdgz1">
-            	<a href="lab.php?labName=kineticEnergyLaw">
-				<img class="new-ribbon" src="images/new.png" alt="new-ribbon">
-				<img src="images/kineticEnergyLaw/cover.jpg" height="120" width="290px;"></a>
-				<p><a href="kineticEnergyLaw.html">如何验证动能定理？</a></p>
-				<span>打点计时器</span>
-			</div>
-        	<div class="jdgz2">
-				<a href="lab.php?labName=electricField">
-				<img class="new-ribbon" src="images/new.png" alt="new-ribbon">
-				<img src="images/electricField/cover.jpg" height="120" width="290px;"></a>
-                <p><a href="lab.php?labName=electricField">体验电场强度</a></p>
-				<span>E=k*Q/r<sup>2</sup></span></div>
+
+
+            <!--show all the labs which is stored in the database;-->
+            <?php
+            $labs=Lab::getAllLabs();
+            $counter=0;
+            while ($lab = $labs->fetch_row()) {
+                echo '
+                <div class="jdgz'.($counter%2+1).'">
+            	<a href="lab.php?labid='.$lab[4].'">';
+                if($lab[2])
+				    echo '<img class="new-ribbon" src="images/new.png" alt="new-ribbon">';
+				echo '
+                <img src="images/'.$lab[0].'/cover.jpg" height="120" width="290px;"></a>
+				<p><a href="lab.php?labid='.$lab[4].'">'.$lab[1].'</a></p>
+				<span>'.$lab[3].'</span>
+			</div>';
+				$counter++;
+            }
+
+            ?>
+
+
+            <!--show fake labs-->
 			<div class="jdgz1">
 				<a href="blank.html"><img src="images/cover.jpg" height="120" width="290px;"></a>
 				<p><a href="blank.html">如何验证杠杆原理？</a></p>
@@ -196,6 +208,9 @@ session_start();
 				<a href="blank.html"><img src="images/cover.jpg" height="120" width="290px;"></a>
 				<p><a href="blank.html">如何验证牛顿第二定律</a></p>
 				<span>牛顿第二定理吧啦吧啦</span></div>
+
+
+
 
         <div style="clear:both;"></div>
         <div class="link">

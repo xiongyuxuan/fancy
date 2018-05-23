@@ -9,12 +9,12 @@ require_once('connect.php');
 $mysqli=connect();
 
 $labs='insert into 
-labpage(name,englishname,price)
-values("动能定理","kineticEnergyLaw",0);';
+labpage(name,englishname,price,footer)
+values("如何验证动能定理？","kineticEnergyLaw",0,"打点计时器");';
 
 $labs.='insert into 
-labpage(name,englishname,price)
-values("电场强度","electricField",0);';
+labpage(name,englishname,price,footer)
+values("体验电场强度","electricField",0,"E=k*Q/r");';
 
 
 if ($mysqli->multi_query($labs)) {

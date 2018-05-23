@@ -10,11 +10,21 @@ exit;
 $labId="";
 $labEnglishName="";
 $labName="";
+$userId=$_SESSION["id"];
+$userType=$_SESSION["usertype"];
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $labId = $_GET["labid"];
     $labEnglishName=Lab::getLabEnglishName($labId);
     $labName=Lab::getLabName($labId);
 }
+
+//if the lab is not available for this user, page will redirect to buy lab page
+if(!Lab::isAvailable($labId,$userId,$userType)){
+    header("Location:buyLab.php?labid=$labId");
+    exit;
+}
+
+
 ?>
 <html>
 <head>

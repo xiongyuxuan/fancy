@@ -30,9 +30,13 @@ if(!isset($_GET["courseid"])){
 ?>
 <html lang="zh-cn">
 <head>
-    <title>
-        Courses
-    </title>
+    <meta charset="utf-8" />
+    <title>课程</title>
+    <link rel="shortcut icon" href="images/seed.ico" />
+    <link href="css/type.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_529261_yyh9wnvuf9cz0k9.css">
+    <link rel="stylesheet" href="css/carousel.css">
 </head>
 <body>
 <?php
@@ -72,17 +76,27 @@ if($labs){
     if($labs->num_rows===0)
         echo '<span>此课程还没有可用实验，可邀请老师购买课程，则所有同学可以使用</span>';
     else {
-        echo '<table><tr><th>实验号</th><th>实验名</th><th></th></tr>';
-        while ($row = $labs->fetch_row()) {
-            echo '<tr>';
-            foreach ($row as $_row)
-                echo '<td>' . $_row . '</td>';
-            echo '<td><a href="lab.php?labid='.$row[0].'">进入实验</a></td></tr>';
+        $counter=0;
+        while ($lab = $labs->fetch_row()) {
+            echo '
+                <div class="jdgz'.($counter%2+1).'">
+            	<a href="lab.php?labid='.$lab[4].'">';
+            if($lab[2])
+                echo '<img class="new-ribbon" src="images/new.png" alt="new-ribbon">';
+            echo '
+                <img src="images/'.$lab[0].'/cover.jpg" height="120" width="290px;"></a>
+				<p><a href="lab.php?labid='.$lab[4].'">'.$lab[1].'</a></p>
+				<span>'.$lab[3].'</span>
+			</div>';
+            $counter++;
         }
-        echo '</table><br>';
     }
     $labs->free();
 }
+?>
+<div style="clear:both;"></div>
+
+<?php
 
 
 //papers
