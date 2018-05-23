@@ -180,7 +180,7 @@ require_once("../models/lab.php");
 				echo '
                 <img src="images/'.$lab[0].'/cover.jpg" height="120" width="290px;"></a>
 				<p><a href="lab.php?labid='.$lab[4].'">'.$lab[1].'</a></p>
-				<span>'.$lab[3].'</span>
+				<span>'.$lab[3].'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp价格： '.$lab[5].'</span>
 			</div>';
 				$counter++;
             }
