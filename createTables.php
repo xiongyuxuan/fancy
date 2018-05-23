@@ -52,11 +52,13 @@ on update cascade
 //labpage table
 $tables.='CREATE TABLE if not exists labpage (
 id INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name varchar(30) NOT NULL,
+englishname varchar(30) NOT NULL,
 price INT(5) default 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
 
 
-//user&labpage table
+//user&labpage table 1=teacher
 $tables.='CREATE TABLE if not exists userlabpage (
 userid INT(20),
 labpageid INT(5) UNSIGNED,
@@ -68,7 +70,7 @@ on update cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
 
 
-//chat message table : message in the course, which are for communicate inner one course
+//chat message table : message in the course, which are for communicate inner one course 0=student
 $tables.='CREATE TABLE if not exists chatmessages (
 courseid INT(5) UNSIGNED,
 userid INT(20),
@@ -129,8 +131,9 @@ on update cascade
 $tables.='CREATE TABLE if not exists questions (
 id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 content text,
+img longtext,
 answersoptions text,
-answer varchar(5),
+answer varchar(40),
 labpageid INT(5) UNSIGNED,
 foreign key(labpageid) references labpage(id)
 on delete cascade

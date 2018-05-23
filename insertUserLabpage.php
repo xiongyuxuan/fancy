@@ -2,24 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: xiong
- * Date: 19/05/2018
- * Time: 3:54 PM
+ * Date: 22/05/2018
+ * Time: 11:46 AM
  */
 
 require_once('connect.php');
+
 $mysqli=connect();
 
-$courses='insert into 
-courses(coursename,teacherid,regdate)
-values("西大物理3班",1,NOW());';
+//need to change the code if you want to insert something.
+$userlabpage="select * from userlabpage";
 
-$courses.='insert into 
-courses(coursename,teacherid,regdate)
-values("西大物理4班",1,NOW());';
-
-
-
-if ($mysqli->multi_query($courses)) {
+if ($mysqli->multi_query($userlabpage)) {
     do {
         /* store first result set */
         if ($result = $mysqli->store_result()) {
@@ -35,10 +29,10 @@ if ($mysqli->multi_query($courses)) {
         else
             break;
     } while ($mysqli->next_result());
-    echo "All courses are inserted successfully<br>";
+    echo "All userlabpage are inserted successfully<br>";
 }
 else {
-    echo "Error inserting courses: " . $mysqli->error;
+    echo "Error inserting userlabpage: " . $mysqli->error;
 }
 
 $mysqli->close();

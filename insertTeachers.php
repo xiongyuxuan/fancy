@@ -10,15 +10,15 @@ $mysqli=connect();
 
 $teachers='insert into 
 teachers(id,firstname,lastname,email,regdate,password)
-values(1,"Bill","Gates","bill@fancy.com",CURDATE(),PASSWORD("abcDE"));';
+values(1,"Bill","Gates","bill@fancy.com",NOW(),PASSWORD("abcDE"));';
 
 $teachers.='insert into 
 teachers(firstname,lastname,email,regdate,password)
-values("Zarkberger","Mark","zarkberger@fancy.com",CURDATE(),PASSWORD("abcDE"));';
+values("Zarkberger","Mark","zarkberger@fancy.com",NOW(),PASSWORD("abcDE"));';
 
 $teachers.='insert into 
 teachers(firstname,lastname,email,regdate,password)
-values("Jun","Lei","jun@fancy.com",CURDATE(),PASSWORD("abcDE"));';
+values("Jun","Lei","jun@fancy.com",NOW(),PASSWORD("abcDE"));';
 
 
 

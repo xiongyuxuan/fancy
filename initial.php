@@ -12,8 +12,13 @@ require_once("insertStudents.php");
 require_once("insertTeachers.php");
 require_once("insertCourses.php");
 require_once("insertSC.php");
+require_once("insertLabs.php");
+require_once("insertUserLabpage.php");
+require_once("insertChatMessages.php");
 echo "<br><br><br><br>";
 require_once("checkTables.php");
+
+
 
 ?>
 

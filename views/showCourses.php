@@ -46,12 +46,12 @@ if($usertype==="teacher"){
         if($courses->num_rows===0)
             echo '<span>您还没有课程</span><a href="createCourse.php"> 创建课程</a>';
         else {
-            echo '<table><tr><th>课程名</th><th>创建时间</th></tr>';
+            echo '<table><tr><th>课程代码</th><th>课程名</th><th>创建时间</th><th></th></tr>';
             while ($row = $courses->fetch_row()) {
                 echo '<tr>';
                 foreach ($row as $_row)
                     echo '<td>' . $_row . '</td>';
-                echo '</tr>';
+                echo '<td><a href="course.php?courseid='.$row[0].'">进入课程 </a></td></tr>';
             }
             echo '</table><br>';
         }
@@ -66,12 +66,12 @@ elseif($usertype==="student"){
         if($courses->num_rows===0)
             echo '<span>您还没有课程</span><a href="joinCourse.php"> 加入课程</a>';
         else {
-            echo '<table><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th></tr>';
+            echo '<table><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th><th></th></tr>';
             while ($row = $courses->fetch_row()) {
                 echo '<tr>';
                 foreach ($row as $_row)
                     echo '<td>' . $_row . '</td>';
-                echo '</tr>';
+                echo '<td><a href="course.php?courseid='.$row[0].'">进入课程</a></td></tr>';
             }
             echo '</table><br>';
         }

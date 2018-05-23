@@ -15,15 +15,15 @@ regdate DATETIME
 
 $students='insert into 
 students(id,firstname,lastname,email,regdate,password)
-values(1,"Jacky","Chen","jacky@fancy.com",CURDATE(),PASSWORD("abcDE"));';
+values(1,"Jacky","Chen","jacky@fancy.com",NOW(),PASSWORD("abcDE"));';
 
 $students.='insert into 
 students(firstname,lastname,email,regdate,password)
-values("Bruce","Li","bruce@fancy.com",CURDATE(),PASSWORD("abcDE"));';
+values("Bruce","Li","bruce@fancy.com",NOW(),PASSWORD("abcDE"));';
 
 $students.='insert into 
 students(firstname,lastname,email,regdate,password)
-values("Yuxuan","Xiong","yuxuan@fancy.com",CURDATE(),PASSWORD("abcDE"));';
+values("Yuxuan","Xiong","yuxuan@fancy.com",NOW(),PASSWORD("abcDE"));';
 
 
 

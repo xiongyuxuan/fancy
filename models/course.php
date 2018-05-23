@@ -45,7 +45,7 @@ values("'.$courseName.'","'.$teacherId.'",CURDATE());';
     public static function showCourses($teacherId){
         global $mysqli;
         $mysqli=connect();
-        $query = 'select coursename,regdate
+        $query = 'select id,coursename,regdate
         from courses
         where teacherid="'.$teacherId.'"';
 
@@ -55,6 +55,43 @@ values("'.$courseName.'","'.$teacherId.'",CURDATE());';
         return $result;
     }
 
+    /*
+       * pre-condition: input course id
+        * function: select and return teachers id from table: course
+         * post-condition: -return teachers id(:string) who created the given course
+        *              -return false if failed
+      */
+    public static function getTeacherId($courseId){
+        global $mysqli;
+        $mysqli=connect();
+        $query = 'select id
+        from courses
+        where id='.$courseId.'';
+
+        $result = $mysqli->query($query);
+        $mysqli->close();
+
+        return $result;
+    }
+
+    /*
+     * pre-condition: get course id
+     * function: select and return course information(:mysqli_result) from talbe: course and teacher
+     * post-condition: same as function
+     */
+    public static function getCourseInformation($courseId){
+        global $mysqli;
+        $mysqli=connect();
+        $query = 'select courses.id, courses.coursename, teachers.firstname, teachers.email
+        from courses, teachers
+        where courses.teacherid=teachers.id and 
+                courses.id='.$courseId.';';
+
+        $result = $mysqli->query($query);
+        $mysqli->close();
+
+        return $result;
+    }
 }
 
 ?>
