@@ -58,13 +58,13 @@ values("'.$courseName.'","'.$teacherId.'",CURDATE());';
     /*
        * pre-condition: input course id
         * function: select and return teachers id from table: course
-         * post-condition: -return teachers id(:string) who created the given course
+         * post-condition: -return teachers id(:mysqli_result) who created the given course
         *              -return false if failed
       */
     public static function getTeacherId($courseId){
         global $mysqli;
         $mysqli=connect();
-        $query = 'select id
+        $query = 'select teacherid
         from courses
         where id='.$courseId.'';
 

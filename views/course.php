@@ -129,9 +129,10 @@ if ($chatmessages) {
     $chatmessages->free();
 
     echo '<form action="../controllers/insertChatMessages.php" method="post">
-    留言：<input type="text" name="content">
+    留言：&nbsp&nbsp&nbsp&nbsp<input type="submit"><br>
+     <textarea name="content" rows="10" cols="50" placeholder="说些什么吧..."></textarea>
     <input type="text" name="courseid" value="'.$courseId.'" hidden>
-    <input type="submit">
+    
     </form>';
 }
 

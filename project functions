@@ -1,0 +1,16 @@
+teacher:
++create couse
+-generate test paper
+joinCourse.php [showCourses.php]
+
+student:
++login
++join course
+
+common:
++login
++show course
++message in course
++message in page
+-show all labs
+-buy lab

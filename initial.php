@@ -15,6 +15,7 @@ require_once("insertSC.php");
 require_once("insertLabs.php");
 require_once("insertUserLabpage.php");
 require_once("insertChatMessages.php");
+require_once("insertMessages.php");
 echo "<br><br><br><br>";
 require_once("checkTables.php");
 

@@ -50,10 +50,10 @@ if ($mysqli->multi_query($courses)) {
         else
             break;
     } while ($mysqli->next_result());
-    echo "All courses are inserted successfully<br>";
+    echo "All chatMessages are inserted successfully<br>";
 }
 else {
-    echo "Error inserting courses: " . $mysqli->error;
+    echo "Error inserting chatMessages: " . $mysqli->error;
 }
 
 $mysqli->close();

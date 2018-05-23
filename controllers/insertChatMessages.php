@@ -16,7 +16,7 @@
 session_start();
 require_once('../models/sc.php');
 require_once('../models/chatmessage.php');
-
+require_once('../tool.php');
 if(empty($_SESSION["username"])){
     header("Location:login.php");
     exit;
@@ -32,8 +32,10 @@ if($_SESSION["usertype"]==="teacher")
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $courseId = $_POST["courseid"];
     $content= $_POST["content"];
+    $content=Tool::test_input($content);
     if(SC::isInCourse($courseId,$userId)) {
-        ChatMessage::insertChatMessages($courseId,$userId,$userType,$content);
+        if(!empty($content))
+            ChatMessage::insertChatMessages($courseId,$userId,$userType,$content);
         header('Location: ../views/course.php?courseid=' . $courseId);
         exit();
     }

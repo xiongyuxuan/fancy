@@ -24,11 +24,13 @@ if(empty($_SESSION["username"])){
 <title>
 showCourses
 </title>
+    <link href="css/type.css" rel="stylesheet">
 </head>
 <body>
 <?php
 $userId=$_SESSION["id"];
 $usertype=$_SESSION["usertype"];
+$course_message="";
 
 if($usertype==="teacher"){
     $message="";
@@ -60,12 +62,36 @@ if($usertype==="teacher"){
 
 }
 elseif($usertype==="student"){
+    //handle 'join class'
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $courseId=$_POST["courseid"];
+        if(SC::enrollStudent($userId,$courseId)) {
+            $course=Course::getCourseInformation($courseId);
+            $course_message = "成功加入课程: " .$course->fetch_row()[1]."<br>";
+        }
+        else{
+            $course_message ="没有此课程或您已加入此课程.<br>";
+        }
+    }
+
+    //join class
+    echo ' <h1>加入课程: </h1><br>
+    <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
+        <span class="error">'.$course_message.'</span>
+       请输入课程号：<input type="number" name="courseid">
+        <input type="submit">
+    </form>';
+
+
+
+    //show courses
     $courses=SC::showCourses($userId);
     //print the table of courses
     if($courses){
         if($courses->num_rows===0)
-            echo '<span>您还没有课程</span><a href="joinCourse.php"> 加入课程</a>';
+            echo '<span class="error">您还没有课程</span>';
         else {
+            echo '<h1>您的课程：</h1><br>';
             echo '<table><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th><th></th></tr>';
             while ($row = $courses->fetch_row()) {
                 echo '<tr>';

@@ -21,7 +21,7 @@ class SC{
         $query = 'select courses.id, courses.coursename, teachers.firstname, teachers.email
         from courses, sc, teachers
         where sc.studentid='.$studentId.' and
-        courses.id=sc.studentid and
+        courses.id=sc.courseid and
         courses.teacherid=teachers.id;';
 
         /*
@@ -101,6 +101,26 @@ class SC{
         }
 
 
+    }
+
+
+
+    /*
+ * pre-condition: input student id and course id
+ * function: check if the given student is in the given course or not
+ * post-condition: return true if in course, false is not in.
+ */
+
+    public static function enrollStudent($studentId,$courseId){
+        global $mysqli;
+        $mysqli=connect();
+        $query = 'insert into sc
+                values('.$studentId.','.$courseId.');';
+
+        $result = $mysqli->query($query);
+        $mysqli->close();
+
+       return $result;
     }
 
 
