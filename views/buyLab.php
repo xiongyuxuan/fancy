@@ -5,6 +5,15 @@
  * Date: 23/05/2018
  * Time: 6:29 PM
  */
+session_start();
+if(empty($_SESSION["username"])){
+    header("Location:login.php");
+    exit;
+}
+if(Lab::isAvailable($labId,$userId,$userType)){
+    header("Location:home.php");
+    exit;
+}
 require_once("../models/lab.php");
 ?>
 <html lang="zh-cn">
@@ -35,8 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 				<span>' . $lab[3] . '</span>
 			</div>';
 }
+else{
+    header("Location:home.php");
+    exit;
+}
 ?>
-<form action="../models/buyLab.php" method="post">
+<form action="../controllers/buyLab.php" method="post">
+    <input type="text" name="labid" value="<?php echo $labId ?>" hidden>
     <input type="submit" value="购买">
 </form>
 

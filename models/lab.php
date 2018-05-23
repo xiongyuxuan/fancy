@@ -220,6 +220,87 @@ class Lab
     }
 
 
+
+    /*
+     * pre-condition: null
+     * function: get all free lab pages
+     * post-condition: return an array of page id or false if no matches.
+     */
+    public static function freeLabs(){
+        global $mysqli;
+        $mysqli=connect();
+
+        $freeLabs = 'select id
+        from labpage
+        where price=0;';
+
+
+
+        $result = $mysqli->query($freeLabs);
+        $mysqli->close();
+
+        if($result->num_rows===0)
+            return false;
+        else{
+            $labIds="";
+            while($row=$result->fetch_row()){
+                $labIds[]=$row[0];
+            }
+            return $labIds;
+        }
+
+    }
+
+
+
+    /*
+   * pre-condition: input labId,userid,usertype
+   * function: buy the lab for the given user
+   * post-condition: insert a record into table: userlabpage
+   */
+    public static function buyLab($labId,$userId,$userType){
+        global $mysqli;
+        $mysqli=connect();
+
+       if(!self::isAvailable($labId,$userId,$userType)) {
+           $query = 'insert into userlabpage
+            values(' . $userId . ',' . $labId . ',' . $userType . ');';
+
+           $result = $mysqli->query($query);
+           $mysqli->close();
+
+           return $result;
+       }
+       else{
+            return false;
+       }
+
+    }
+
+
+    /*
+     * pre-condition: input user id and user type
+     * function: get labs that the user bought
+     * post-condition: return an object(:mysql_result) that contains labs information
+     *
+     */
+    public static function myLabs($userId,$userType){
+        global $mysqli;
+        $mysqli=connect();
+
+
+        $query = ' select labpage.englishname, labpage.name, labpage.isnew, labpage.footer, labpage.id, labpage.price
+        from userlabpage, labpage
+        where userlabpage.userid='.$userId.' and userlabpage.usertype='.$userType.' and
+              userlabpage.labpageid=labpage.id;';
+
+        $result = $mysqli->query($query);
+        $mysqli->close();
+
+        return $result;
+
+    }
+
 }
 
 ?>
