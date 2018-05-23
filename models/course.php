@@ -27,7 +27,7 @@ class Course
         $mysqli=connect();
         $query = 'insert into 
 courses(coursename,teacherid,regdate)
-values("'.$courseName.'","'.$teacherId.'",CURDATE());';
+values("'.$courseName.'","'.$teacherId.'",NOW());';
 
         $result = $mysqli->query($query);
         $mysqli->close();

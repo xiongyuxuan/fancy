@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $courseId = $_POST["courseid"];
     $content= $_POST["content"];
     $content=Tool::test_input($content);
-    if(SC::isInCourse($courseId,$userId)) {
+   // echo "course: $courseId student: $userId";
+    if(SC::isInCourse($userId,$courseId)||$userType===1) {
         if(!empty($content))
             ChatMessage::insertChatMessages($courseId,$userId,$userType,$content);
         header('Location: ../views/course.php?courseid=' . $courseId);
