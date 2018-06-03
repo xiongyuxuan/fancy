@@ -50,9 +50,6 @@ a{
 	float:left;
 	border:1px #b1b1b1 solid;
 	}
-.error{
-	color:red;
-}
 .search{
 	height:30px;
 	width:40px;
@@ -474,3 +471,6 @@ a{
 	line-height:25px;
 	font-size:12px;
 	}
+.error{
+	color: #5660ff;
+}

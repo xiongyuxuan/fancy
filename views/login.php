@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <div>
 					<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" value="abcDE" onpaste="return false" />
                 </div>
-                <span class="error"><?php echo "<br>".$error; ?></span>
+                <span class="error" style="color:red"><?php echo "<br>".$error; ?></span>
                 <button id="submit" type="submit">登陆</button>
             </form>
             <div class="connect">

@@ -19,14 +19,48 @@ if(empty($_SESSION["username"])){
     exit;
 }
 ?>
-<html lang="zh-cn">
+
 <head>
-<title>
-showCourses
-</title>
-    <link href="css/type.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的课程</title>
+    <link rel="shortcut icon" href="images/seed.ico" />
+    <link href="css/showCourse.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/carousel.css">
+    <link href="css/fancyInput.css" rel="stylesheet" />
+    <script>
+        window.onload=function(){
+            change();
+            C1Change();
+        }
+    </script>
+    <style>
+        h1{
+            margin-left: 50px;
+        }
+        </style>
 </head>
-<body>
+<body background="images/bg_02.png">
+<!-------------------网页头部------------------->
+<div class="banner">
+    <div class="banner1">
+        <div class="ban_top w">
+            <a href="home.php"><img src="images/logo.jpg" height="80" width="150" /></a>
+        </div>
+        <ul class="ban_list w">
+            <li><a class="out" href="home.php">首页</a></li>
+            <li><a class="out" href="createCourse.php" >创建课程</a></li>
+            <li><a class="out" href="myLabs.php">我的实验</a></li>
+            <li><a class="on" href="showCourses.php">我的课程</a></li>
+            <li><a class="out" href="blank.html"">已购买实验</a></li>
+            <li><a class="out" href="blank.html">练习题库</a></li>
+
+        </ul>
+    </div>
+</div>
+<!-------------------网页主体------------------->
+</body>
+</html>
+
 <?php
 $userId=$_SESSION["id"];
 $usertype=$_SESSION["usertype"];
@@ -43,12 +77,12 @@ if($usertype==="teacher"){
 
     $courses=Course::showCourses($userId);
     //print the table of courses
-    echo '<span>'.$message.'</span>';
+    echo '<span style="color:red;font-size: 20px">'.$message.'</span>';
     if($courses){
         if($courses->num_rows===0)
             echo '<span>您还没有课程</span><a href="createCourse.php"> 创建课程</a>';
         else {
-            echo '<table><tr><th>课程代码</th><th>课程名</th><th>创建时间</th><th></th></tr>';
+            echo '<table style="margin: 100px auto" id="table-4"><tr><th>课程代码</th><th>课程名</th><th>创建时间</th><th></th></tr>';
             while ($row = $courses->fetch_row()) {
                 echo '<tr>';
                 foreach ($row as $_row)
@@ -75,13 +109,23 @@ elseif($usertype==="student"){
     }
 
     //join class
-    echo ' <h1>加入课程: </h1><br>
+    echo '<div style="height:300px">
+    <h1>加入课程: </h1><br>
     <form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post">
-        <span class="error">'.$course_message.'</span>
-       请输入课程号：<input type="number" name="courseid">
-        <input type="submit">
-    </form>';
-
+   
+         <span class="error" style="color:red">'.$course_message.'</span>
+    <div class="panel">
+        <div class="wrap">
+            <input type="number" name="courseid" placeholder="请输入课程号">
+            <button type="submit">提交</button>
+        </div>
+    </div>
+    <div style="text-align:center;clear:both">
+        <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+        <script src="/follow.js" type="text/javascript"></script>
+    </div>
+</form>
+</div>';
 
 
     //show courses
@@ -91,8 +135,8 @@ elseif($usertype==="student"){
         if($courses->num_rows===0)
             echo '<span class="error">您还没有课程</span>';
         else {
-            echo '<h1>您的课程：</h1><br>';
-            echo '<table><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th><th></th></tr>';
+            echo '<h1 style="margin-top:50px">您的课程：</h1><br>';
+            echo '<table ID="table-4" style="margin: 100px auto" ><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th><th></th></tr>';
             while ($row = $courses->fetch_row()) {
                 echo '<tr>';
                 foreach ($row as $_row)
