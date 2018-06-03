@@ -16,7 +16,7 @@ $(function(){
 		var object_position_x;
 		var imageCount = -1;
 		var imageSrc = [
-			"convex.png","concave.png","planoconvex.png","planoconcave.png","negative.png"
+			"images/convex.png","images/cconcave.png","images/cplanoconvex.png","images/planoconcave.png","images/cnegative.png"
 			
 		];
 			
@@ -50,7 +50,7 @@ $(function(){
 				}
 				image.src = imageSrc[i];
 				$lense.draggable({helper: 'clone'});
-				$lense.data("url", "lense.png");
+				$lense.data("url", "images/clense.png");
 				$lense.data("image", image); 
 			})();
 		}
