@@ -262,18 +262,15 @@ class Lab
         global $mysqli;
         $mysqli=connect();
 
-       if(!self::isAvailable($labId,$userId,$userType)) {
+
            $query = 'insert into userlabpage
-            values(' . $userId . ',' . $labId . ',' . $userType . ');';
+            values('.$userId.','.$labId.','.$userType.');';
+
 
            $result = $mysqli->query($query);
            $mysqli->close();
 
            return $result;
-       }
-       else{
-            return false;
-       }
 
     }
 

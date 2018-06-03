@@ -18,6 +18,7 @@ if(empty($_SESSION["username"])){
     header("Location:login.php");
     exit;
 }
+$userType=$_SESSION["usertype"];
 ?>
 
 <head>
@@ -48,18 +49,22 @@ if(empty($_SESSION["username"])){
         </div>
         <ul class="ban_list w">
             <li><a class="out" href="home.php">首页</a></li>
-            <li><a class="out" href="createCourse.php" >创建课程</a></li>
-            <li><a class="out" href="myLabs.php">我的实验</a></li>
             <li><a class="on" href="showCourses.php">我的课程</a></li>
-            <li><a class="out" href="blank.html"">已购买实验</a></li>
-            <li><a class="out" href="blank.html">练习题库</a></li>
+            <?php
+            if($userType=="teacher")
+                echo '<li><a class="out" href="createCourse.php" >创建课程</a></li>';
+            else
+                echo '<li><a class="out" href="showCourses.php" >加入课程</a></li>';
+            ?>
+            <li><a class="out" href="myLabs.php">我的实验</a></li>
 
+            <li><a class="out" href="buyLab_fake.php">购买实验</a></li>
+            <li><a class="out" href="blank.html">练习题库</a></li>
         </ul>
     </div>
 </div>
 <!-------------------网页主体------------------->
-</body>
-</html>
+
 
 <?php
 $userId=$_SESSION["id"];

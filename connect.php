@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "guest";
+$password = "123456";
 $dbname="abc";
 
 // Create connection
@@ -13,8 +13,8 @@ if ($mysqli->connect_error) {
 }
 function connect(){
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "guest";
+    $password = "123456";
     $dbname="abc";
 
 // Create connection

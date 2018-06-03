@@ -23,6 +23,7 @@ if(empty($_SESSION["username"])){
     header("Location:login.php");
     exit;
 }
+$userType=$_SESSION['usertype'];
 if(!isset($_GET["courseid"])){
     header("Location:showCourses.php");
     exit;
@@ -171,10 +172,16 @@ if(!isset($_GET["courseid"])){
         </div>
         <ul class="ban_list w">
             <li><a class="out" href="home.php">首页</a></li>
-            <li><a class="out" href="createCourse.php" >创建课程</a></li>
-            <li><a class="out" href="myLabs.php">我的实验</a></li>
             <li><a class="on" href="showCourses.php">我的课程</a></li>
-            <li><a class="out" href="blank.html"">已购买实验</a></li>
+            <?php
+            if($userType=="teacher")
+                echo '<li><a class="out" href="createCourse.php" >创建课程</a></li>';
+            else
+                echo '<li><a class="out" href="showCourses.php" >加入课程</a></li>';
+            ?>
+            <li><a class="out" href="myLabs.php">我的实验</a></li>
+
+            <li><a class="out" href="blank.html">购买实验</a></li>
             <li><a class="out" href="blank.html">练习题库</a></li>
 
         </ul>
@@ -257,7 +264,7 @@ if($userType==="teacher") {
         if ($students->num_rows === 0)
             echo '<span>您还没有学生</span>';
         else {
-            echo '<table><tr><th>学号</th><th>姓名</th><th>邮箱</th><th></th></tr>';
+            echo '<table ID="table-4" style="margin: 100px auto"><tr><th>学号</th><th>姓名</th><th>邮箱</th><th></th></tr>';
             while ($row = $students->fetch_row()) {
                 echo '<tr>';
                 foreach ($row as $_row)

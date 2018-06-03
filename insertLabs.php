@@ -16,6 +16,10 @@ $labs.='insert into
 labpage(name,englishname,price,footer)
 values("体验电场强度","electricField",0,"E=k*Q/r");';
 
+$labs.='insert into 
+labpage(name,englishname,price,footer)
+values("透镜成像","lens_experiment",5,"透镜的奥妙");';
+
 
 if ($mysqli->multi_query($labs)) {
     do {

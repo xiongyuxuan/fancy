@@ -10,10 +10,6 @@ if(empty($_SESSION["username"])){
     header("Location:login.php");
     exit;
 }
-if(Lab::isAvailable($labId,$userId,$userType)){
-    header("Location:home.php");
-    exit;
-}
 require_once("../models/lab.php");
 
 $userId=$_SESSION["id"];

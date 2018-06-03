@@ -3,45 +3,38 @@
 /**
  * Created by PhpStorm.
  * User: xiong
- * Date: 16/05/2018
- * Time: 5:13 PM
- *
- * role: view level file for creating a course
- * pre-condition: input courseName
- * function: insert a course record into table: courses
- * post-condition: -same as function if success
- *                 -show this page again with error message if fail.
+ * Date: 3/06/2018
+ * Time: 7:29 PM
  */
 session_start();
-$error="";
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        if(isset($_GET["error"]))  $error="课程号不能为空";
-    }
-
-
+require_once('../models/course.php');
+require_once('../models/sc.php');
 if(empty($_SESSION["username"])){
     header("Location:login.php");
     exit;
 }
 $userType=$_SESSION["usertype"];
 ?>
-<html lang="zh-cn">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>创建课程</title>
+    <title>我的课程</title>
     <link rel="shortcut icon" href="images/seed.ico" />
     <link href="css/showCourse.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/carousel.css">
     <link href="css/fancyInput.css" rel="stylesheet" />
-
-<script>
+    <script>
         window.onload=function(){
             change();
             C1Change();
         }
     </script>
+    <style>
+        h1{
+            margin-left: 50px;
+        }
+    </style>
 </head>
-
 <body background="images/bg_02.png">
 <!-------------------网页头部------------------->
 <div class="banner">
@@ -54,33 +47,17 @@ $userType=$_SESSION["usertype"];
             <li><a class="out" href="showCourses.php">我的课程</a></li>
             <?php
             if($userType=="teacher")
-                echo '<li><a class="on" href="createCourse.php" >创建课程</a></li>';
+                echo '<li><a class="out" href="createCourse.php" >创建课程</a></li>';
             else
-                echo '<li><a class="on" href="showCourses.php" >加入课程</a></li>';
+                echo '<li><a class="out" href="showCourses.php" >加入课程</a></li>';
             ?>
             <li><a class="out" href="myLabs.php">我的实验</a></li>
 
             <li><a class="on" href="buyLab_fake.php">购买实验</a></li>
             <li><a class="out" href="blank.html">练习题库</a></li>
-
         </ul>
     </div>
 </div>
-<!-------------------网页主体------------------->
-<form action="../controllers/createCourse.php" method="post">
-    <div class="panel">
-        <div class="wrap">
-            <input type="text" name="coursename" placeholder="请输入课程名">
-            <button type="submit">提交</button>
-        </div>
-    </div>
-    <div style="text-align:center;clear:both">
-        <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
-        <script src="/follow.js" type="text/javascript"></script>
-    </div>
-
-</form>
-<h2 class="error" style="color:#ff3428;text-align:center"><?php echo $error; ?></h2>
-
+<h1 style="color:red">请到具体的实验页面下进行购买   ^_^</h1>
 </body>
 </html>

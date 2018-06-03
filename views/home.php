@@ -49,6 +49,12 @@ require_once("../models/lab.php");
       <ul class="menu W">
           <li style="margin-left:15px;"><a href="home.php" target="_self">首页</a></li>
 
+          <li onMouseOver="show('nav_3','a3');" onMouseOut="hide('nav_3','a3')" style=" position:relative;"><a href="showCourses.php" id="a3">我的课程 </a>
+              <!--          		<ul id="nav_3" style="position:absolute;">-->
+              <!--                	<li><a href=" ">小学数学</a></li>-->
+              <!--                </ul>-->
+          </li>
+
           <?php
 
           if($userType=="student")
@@ -69,13 +75,9 @@ require_once("../models/lab.php");
 <!--                	<li><a href=" ">初中生物</a></li>-->
 <!--                </ul>-->
           </li>
-          <li onMouseOver="show('nav_3','a3');" onMouseOut="hide('nav_3','a3')" style=" position:relative;"><a href="showCourses.php" id="a3">我的课程 </a>
-<!--          		<ul id="nav_3" style="position:absolute;">-->
-<!--                	<li><a href=" ">小学数学</a></li>-->
-<!--                </ul>-->
-          </li>
-          <li style="margin-left:15px;"><a href="blank.html" target="_blank">购买实验</a></li>
-          <li style="margin-left:15px;"><a href="blank.html" target="_blank">练习题库</a></li>
+
+          <li style="margin-left:15px;"><a href="blank.html" target="_self">购买实验</a></li>
+          <li style="margin-left:15px;"><a href="blank.html" target="_self">练习题库</a></li>
 
 
       </ul>
