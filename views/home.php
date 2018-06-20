@@ -76,8 +76,9 @@ require_once("../models/lab.php");
 <!--                </ul>-->
           </li>
 
-          <li style="margin-left:15px;"><a href="blank.html" target="_self">购买实验</a></li>
+          <li style="margin-left:15px;"><a href="buyLab_fake.php" target="_self">购买实验</a></li>
           <li style="margin-left:15px;"><a href="blank.html" target="_self">练习题库</a></li>
+		  <li style="margin-left:15px;"><a href="blank.html" target="_self">实验库</a></li>
 
 
       </ul>
@@ -137,7 +138,7 @@ require_once("../models/lab.php");
 				echo '
                 <img src="images/'.$lab[0].'/cover.jpg" height="120" width="290px;"></a>
 				<p><a href="lab.php?labid='.$lab[4].'">'.$lab[1].'</a></p>
-				<span>'.$lab[3].'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp价格： '.$lab[5].'</span>
+				<span>'.$lab[3].'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp价格： '.$lab[5].'&nbsp&nbsp&nbsp&nbsp&nbsp实验类型：'.$lab[6].'</span>
 			</div>';
 				$counter++;
             }

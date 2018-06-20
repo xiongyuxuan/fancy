@@ -9,16 +9,16 @@ require_once('connect.php');
 $mysqli=connect();
 
 $labs='insert into 
-labpage(name,englishname,price,footer)
-values("如何验证动能定理？","kineticEnergyLaw",0,"打点计时器");';
+labpage(name,englishname,price,footer,class)
+values("如何验证动能定理？","kineticEnergyLaw",0,"打点计时器","物理");';
 
 $labs.='insert into 
-labpage(name,englishname,price,footer)
-values("体验电场强度","electricField",0,"E=k*Q/r");';
+labpage(name,englishname,price,footer,class)
+values("体验电场强度","electricField",0,"E=k*Q/r","物理");';
 
 $labs.='insert into 
-labpage(name,englishname,price,footer)
-values("透镜成像","lens_experiment",5,"透镜的奥妙");';
+labpage(name,englishname,price,footer,class)
+values("透镜成像","lens_experiment",5,"透镜的奥妙","物理");';
 
 
 if ($mysqli->multi_query($labs)) {

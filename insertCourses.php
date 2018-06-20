@@ -17,7 +17,9 @@ $courses.='insert into
 courses(coursename,teacherid,regdate)
 values("西大物理4班",1,NOW());';
 
-
+$courses.='insert into 
+courses(coursename,teacherid,regdate)
+values("西大软工2班",2,NOW());';
 
 if ($mysqli->multi_query($courses)) {
     do {

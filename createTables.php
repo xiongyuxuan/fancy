@@ -56,7 +56,8 @@ name varchar(30) NOT NULL,
 englishname varchar(30) NOT NULL,
 price INT(5) default 0,
 isnew tinyint default 1,
-footer VARCHAR(30) NOT NULL
+footer VARCHAR(30) NOT NULL,
+class VARCHAR(20)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
 
 

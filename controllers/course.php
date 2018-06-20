@@ -24,13 +24,13 @@ class CourseController
         $teacherId=Course::getTeacherId($courseId)->fetch_row()[0];
         global $mysqli;
         $mysqli=connect();
-        $labs=' select labpage.englishname, labpage.name, labpage.isnew, labpage.footer, labpage.id, labpage.price
+        $labs=' select labpage.englishname, labpage.name, labpage.isnew, labpage.footer, labpage.id, labpage.price, labpage.class
         from labpage, userlabpage
         where (labpage.id=userlabpage.labpageid and
               userlabpage.usertype=1 and
               userlabpage.userid='.$teacherId.')
         union
-        select labpage.englishname, labpage.name, labpage.isnew, labpage.footer, labpage.id, labpage.price
+        select labpage.englishname, labpage.name, labpage.isnew, labpage.footer, labpage.id, labpage.price, labpage.class
         from labpage
         where price=0;';
 

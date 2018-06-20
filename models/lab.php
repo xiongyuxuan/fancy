@@ -63,7 +63,7 @@ class Lab
     public static function getAllLabs(){
         global $mysqli;
         $mysqli=connect();
-        $query = 'select englishname, name, isnew, footer, id, price
+        $query = 'select englishname, name, isnew, footer, id, price,class
                   from labpage;';
 
         $result = $mysqli->query($query);

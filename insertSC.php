@@ -11,11 +11,17 @@ $mysqli=connect();
 
 $sc='insert into 
 sc(studentid,courseid)
-values(1,1);';
+values(1,3);';
 
 $sc.='insert into 
 sc(studentid,courseid)
 values(2,1);';
+
+$sc.='insert into 
+sc(studentid,courseid)
+values(3,1);';
+
+
 
 
 if ($mysqli->multi_query($sc)) {

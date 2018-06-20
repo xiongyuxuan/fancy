@@ -140,8 +140,8 @@ elseif($usertype==="student"){
         if($courses->num_rows===0)
             echo '<span class="error">您还没有课程</span>';
         else {
-            echo '<h1 style="margin-top:50px">您的课程：</h1><br>';
-            echo '<table ID="table-4" style="margin: 100px auto" ><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th><th></th></tr>';
+            echo '<h1>您的课程：</h1><br>';
+            echo '<table ID="table-4" style="margin: 0px auto" ><tr><th>课程代码</th><th>课程名</th><th>老师姓名</th><th>老师邮箱</th><th></th></tr>';
             while ($row = $courses->fetch_row()) {
                 echo '<tr>';
                 foreach ($row as $_row)
